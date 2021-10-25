@@ -1,12 +1,7 @@
-import { reduce } from './reduce';
 import { concat } from './concat';
+import { contactDeep } from './concat-deep';
+import { flatten } from './flatten';
+const arr = [1, 2, [3, 4, [5, 6, [7, [8, 9, 10]]]]];
+const concatme = concat([[1], [2], [3, 4], [5, 6, 1, [3, 4]]]);
 
-const reduceme = reduce(
-  [1, 2, 3],
-  (prev, current, index) => {
-    return prev + current;
-  },
-  10,
-);
-
-const concatme = concat([[1], [2], 2]);
+console.log(contactDeep(arr));

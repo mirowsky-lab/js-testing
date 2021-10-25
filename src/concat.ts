@@ -1,15 +1,15 @@
-import { isArray } from './is-array';
-
 export const concat = <TCollection extends unknown[]>(
-  collection: TCollection,
+  collection: TCollection[],
 ) => {
-  for (let i = 0; i < collection.length; i++) {
-    const element = collection[i];
+  let accumulator: unknown[] = [];
 
-    if (isArray(element)) {
-      console.log('list');
-    } else {
-      console.log('not list');
-    }
+  for (let i = 0; i < collection.length; i++) {
+    const innerCollection = collection[i];
+
+    const accumulate = [...accumulator, ...innerCollection];
+
+    accumulator = accumulate;
   }
+
+  return accumulator;
 };
