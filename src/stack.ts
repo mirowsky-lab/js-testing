@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-
 interface IStack {
   top: unknown | null;
   size: number;

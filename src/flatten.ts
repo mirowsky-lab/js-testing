@@ -1,14 +1,33 @@
-import { concat } from './concat';
 import { containsArray } from './contains-array';
+import { isArray } from './is-array';
 
-export const flatten = <T extends unknown[]>(collection: T) => {
-  const accumulator: unknown[] = [...collection];
+export const flatten = <TCollection extends unknown[]>(
+  collection: TCollection,
+) => {
+  let stack: unknown[] = [...collection];
+  let stopConditionReached = false;
 
-  const accumulatorContainsArray = containsArray(accumulator);
+  while (stopConditionReached === false) {
+    const vectorLocal = [];
 
-  while (accumulatorContainsArray) {
-    concat(accumulator as unknown[][]);
+    for (let i = 0; i < stack.length; i++) {
+      const element = stack[i];
+
+      if (isArray(element)) {
+        vectorLocal.push(...(element as unknown[]));
+      } else {
+        vectorLocal.push(element);
+      }
+    }
+
+    stack = vectorLocal;
+
+    if (containsArray(stack)) {
+      stopConditionReached = false;
+    } else {
+      stopConditionReached = true;
+    }
   }
 
-  return accumulator;
+  return stack;
 };

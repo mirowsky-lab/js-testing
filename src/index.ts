@@ -1,7 +1,6 @@
 import { concat } from './concat';
-import { contactDeep } from './concat-deep';
 import { flatten } from './flatten';
 const arr = [1, 2, [3, 4, [5, 6, [7, [8, 9, 10]]]]];
 const concatme = concat([[1], [2], [3, 4], [5, 6, 1, [3, 4]]]);
 
-console.log(contactDeep(arr));
+console.log(flatten(arr));
