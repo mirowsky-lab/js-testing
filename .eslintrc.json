@@ -14,6 +14,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "indent": "off",
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "operator-linebreak": "off"
   }
 }
