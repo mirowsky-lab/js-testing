@@ -1,5 +1,7 @@
+import { INode, Node } from './node';
+
 interface IStack {
-  top: unknown | null;
+  top: INode | null;
   size: number;
   push: (data: unknown) => INode;
   pop: () => unknown;
@@ -11,8 +13,10 @@ export class Stack implements IStack {
   public push(data: unknown) {
     const node = new Node(data);
 
-    node.previous = this.top;
+    this.top ? (this.top.next = node) : (this.top = null);
+
     this.top = node;
+
     this.size++;
 
     return this.top as INode;
@@ -20,22 +24,7 @@ export class Stack implements IStack {
 
   public pop() {
     const temp = this.top as INode;
-    this.top = temp.previous;
     this.size--;
     return temp;
-  }
-}
-
-interface INode {
-  data: unknown;
-  previous: unknown | null;
-}
-export class Node implements INode {
-  data;
-  previous: INode['previous'];
-
-  constructor(data: unknown) {
-    this.data = data;
-    this.previous = null;
   }
 }
