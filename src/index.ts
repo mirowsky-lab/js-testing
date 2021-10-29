@@ -12,6 +12,7 @@ list.append('hello');
 list.append('Ok');
 list.append('bye');
 list.append('bye bye');
-list.prepend('im first');
+
+list.insert(0, 5);
+
 list.print();
-console.log(list.length);

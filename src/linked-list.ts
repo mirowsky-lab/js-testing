@@ -4,6 +4,7 @@ export interface ILinkedList {
   headNode: INode | null;
   print: () => void;
   delete: () => void;
+  insert: <TValue>(index: number, value: TValue) => void;
   append: <TValue>(value: TValue) => void;
   prepend: <TValue>(value: TValue) => void;
   empty: boolean;
@@ -83,5 +84,35 @@ export class LinkedList implements ILinkedList {
     this.empty ? (this.empty = false) : (this.empty = true);
 
     this.length++;
+  }
+
+  public insert<TValue>(index: number, value: TValue) {
+    if (index > this.length) {
+      throw new Error('Index out of bounds');
+    } else {
+      const temp = new Node(value);
+      let targetNode = this.headNode;
+      let targetNodeLeft: INode | null = null;
+      let targetNodeRight: INode | null = null;
+
+      if (!targetNode) {
+        this.headNode = temp;
+      } else if (index === 0) {
+        temp.next = this.headNode?.next ?? null;
+        this.headNode = temp;
+      } else {
+        for (let i = 0; i < index; i++) {
+          if (targetNode.next) {
+            targetNodeLeft = targetNode;
+            targetNode = targetNode.next;
+            targetNodeRight = targetNode.next;
+          }
+        }
+
+        targetNode = temp;
+        targetNodeLeft && (targetNodeLeft.next = targetNode);
+        targetNode && (targetNode.next = targetNodeRight);
+      }
+    }
   }
 }
