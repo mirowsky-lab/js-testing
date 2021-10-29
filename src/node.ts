@@ -1,6 +1,7 @@
 export interface INode {
   value: unknown;
   next: INode | null; // Pointer or reference
+  depth?: number;
   print: () => void;
   addToEnd: (value: unknown) => void;
 }

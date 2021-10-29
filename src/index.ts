@@ -13,6 +13,6 @@ list.append('Ok');
 list.append('bye');
 list.append('bye bye');
 
-list.insert(0, 5);
+list.insert(1, 'I replace OK');
 
 list.print();
