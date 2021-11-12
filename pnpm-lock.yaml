@@ -11,6 +11,7 @@ specifiers:
   esbuild: ^0.13.8
   eslint: ^8.1.0
   eslint-config-google: ^0.14.0
+  fp-ts: ^2.11.5
   lodash: ^4.17.21
   nodemon: ^2.0.14
   rollup: ^2.58.0
@@ -22,6 +23,7 @@ specifiers:
   typescript: ^4.4.4
 
 dependencies:
+  fp-ts: 2.11.5
   lodash: 4.17.21
 
 devDependencies:
@@ -1087,6 +1089,10 @@ packages:
   /flatted/3.2.2:
     resolution: {integrity: sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==}
     dev: true
+
+  /fp-ts/2.11.5:
+    resolution: {integrity: sha512-OqlwJq1BdpB83BZXTqI+dNcA6uYk6qk4u9Cgnt64Y+XS7dwdbp/mobx8S2KXf2AXH+scNmA/UVK3SEFHR3vHZA==}
+    dev: false
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
