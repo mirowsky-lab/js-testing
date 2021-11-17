@@ -1,7 +1,7 @@
 import { Either, left, right } from 'fp-ts/lib/Either';
 
 export class MinLengthValidationError extends Error {
-  public _tag: 'PasswordMinLengthValidationError';
+  public readonly _tag: 'PasswordMinLengthValidationError';
   public minLength: number;
 
   private constructor(minLength: number) {
@@ -16,7 +16,7 @@ export class MinLengthValidationError extends Error {
 }
 
 export class CapitalLetterMissingValidationError extends Error {
-  public _tag: 'PasswordCapitalLetterMissingValidationError';
+  public readonly _tag: 'PasswordCapitalLetterMissingValidationError';
 
   private constructor() {
     super(`Password is missing a capital letter`);
