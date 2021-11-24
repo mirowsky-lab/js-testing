@@ -1,5 +1,20 @@
 const sum = (a: number, b: number) => a + b;
 const subtract = (a: number, b: number) => a - b;
+const subtractAsynchronously = (a: number, b: number) => {
+  return new Promise((resolve, reject) => {
+    let finish = false;
+
+    setTimeout(() => {
+      finish = true;
+    }, 500);
+
+    if (finish) {
+      resolve(a + b);
+    } else {
+      reject(new Error('You suck'));
+    }
+  });
+};
 
 test('sum adds numbers', () => {
   const result = sum(3, 7);
@@ -13,9 +28,19 @@ test('subtract numbers', () => {
   expect(result).toBe(expected);
 });
 
-function test(title: string, callback: (...args: unknown[]) => void): void {
+test('subtract numbers asynchronously', async () => {
+  const result = await subtractAsynchronously(7, 3);
+  const expected = 4;
+
+  expect(result).toBe(expected);
+});
+
+async function test(
+  title: string,
+  callback: (...args: unknown[]) => void | Promise<void>,
+): Promise<void> {
   try {
-    callback();
+    await callback();
     console.log(`✅ ${title}`);
   } catch (error) {
     console.error(`❌ ${title}`);
