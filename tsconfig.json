@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  "ts-node": {
+    "require": ["./globals.ts"],
+  },
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
@@ -21,5 +24,5 @@
     "baseUrl": "."
   },
   "exclude": ["node_modules", "tmp"],
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "globals.ts"]
 }
