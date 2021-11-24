@@ -1,21 +1,17 @@
 const sum = (a: number, b: number) => a + b;
 const subtract = (a: number, b: number) => a - b;
 
-function sumTest() {
+test('sum adds numbers', () => {
   const result = sum(3, 7);
   const expected = 10;
   expect(result).toBe(expected);
-}
+});
 
-test('sum adds numbers', sumTest);
-
-function substractTest() {
+test('subtract numbers', () => {
   const result = subtract(7, 3);
   const expected = 4;
   expect(result).toBe(expected);
-}
-
-test('subtract numbers', substractTest);
+});
 
 function test(title: string, callback: (...args: unknown[]) => void): void {
   try {
