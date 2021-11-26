@@ -6,6 +6,11 @@
   },
   "extends": ["google"],
 
+
+  "ecmaFeatures": {
+    "jsx": true
+  },
+
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",

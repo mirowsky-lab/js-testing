@@ -21,8 +21,9 @@
     "lib": ["es2017", "dom", "ESNext"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "jsx": "react-jsx"
   },
   "exclude": ["node_modules", "tmp"],
-  "include": ["src/**/*.ts", "globals.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "globals.ts"]
 }
